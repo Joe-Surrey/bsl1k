@@ -461,4 +461,14 @@ if __name__ == "__main__":
         default=0.2,
         help="Only show predictions above certain confidence threshold [0, 1]",
     )
-    main(**vars(p.parse_args()))
+    p.add_argument(
+        "--dir",
+        type=bool,
+        default=False,
+        help="Use dir or video - False for video, True for dir"
+    )
+    args = p.parse_args()
+    if not args.dir:
+        main(**vars(args))
+    else:
+        print("Implement me")
